@@ -1,4 +1,4 @@
-from engine.utils import bound_norm_random, ep_time_step, env_proc
+from utils import bound_norm_random, ep_time_step, env_proc
 
 import numpy as np
 from decimal import Decimal
