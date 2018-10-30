@@ -1,7 +1,7 @@
-from ui.config import state_dict, mechanisms, exogenous_states, env_processes, sim_config
-from engine.configProcessor import generate_config
-from engine.mechanismExecutor import simulation
-from engine.utils import flatten
+from config import state_dict, mechanisms, exogenous_states, env_processes, sim_config
+from configProcessor import generate_config
+from mechanismExecutor import simulation
+from utils import flatten
 
 #from tabulate import tabulate
 import pandas as pd
