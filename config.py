@@ -16,9 +16,9 @@ seed = {
 # Behaviors per Mechanism
 # Different return types per mechanism ??
 def b1m1(step, sL, s):
-    return {'param1': 1}
+    return 1
 def b2m1(step, sL, s):
-    return {'param2': 4}
+    return 4
 
 def b1m2(step, sL, s):
     return {'param1': 'a', 'param2': 2}
@@ -34,11 +34,11 @@ def b2m3(step, sL, s):
 # Internal States per Mechanism
 def s1m1(step, sL, s, _input):
     y = 's1'
-    x = _input['param1']
+    x = _input
     return (y, x)
 def s2m1(step, sL, s, _input):
     y = 's2'
-    x = _input['param2']
+    x = _input
     return (y, x)
 
 def s1m2(step, sL, s, _input):
@@ -141,18 +141,21 @@ def get_neutral_element(datatype):
 
 @curried
 def dict_op(f, d1, d2):
-    res = {}
-    for k in set(list(d1.keys())+list(d2.keys())):
-        try:
-            a = d1[k]
-        except KeyError:
-            a = get_neutral_element(type(d2[k]))
-        try:
-            b = d2[k]
-        except KeyError:
-            b = get_neutral_element(type(d1[k]))
-        res.update({k: f(a,b)})
-    return res
+    if type(d1) is dict:
+        res = {}
+        for k in set(list(d1.keys())+list(d2.keys())):
+            try:
+                a = d1[k]
+            except KeyError:
+                a = get_neutral_element(type(d2[k]))
+            try:
+                b = d2[k]
+            except KeyError:
+                b = get_neutral_element(type(d1[k]))
+            res.update({k: f(a,b)})
+        return res
+    else:
+        return f(d1,d2)
 
 def dict_elemwise_sum(f = _ + _):
     return dict_op(f)
