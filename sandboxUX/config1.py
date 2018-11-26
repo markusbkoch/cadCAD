@@ -16,9 +16,9 @@ seed = {
 # Behaviors per Mechanism
 # Different return types per mechanism ?? *** No ***
 def b1m1(step, sL, s):
-    return {'param1': 1}
+    return 1
 def b2m1(step, sL, s):
-    return {'param2': 4}
+    return 4
 
 def b1m2(step, sL, s):
     return {'param1': 'a', 'param2': 2}
