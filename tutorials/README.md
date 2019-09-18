@@ -13,7 +13,7 @@ Check out the [videos](videos) folder for detailed walkthroughs of each one of t
 **Running the tutorials**  
 1. Install cadCAD  
 `pip3 install cadCAD`  
-2. Install Jupyter  
+2. Install [Jupyter Notebook](https://jupyter.readthedocs.io/en/latest/install.html)  
 `pip3 install jupyter`  
 3. [Download](https://github.com/BlockScience/cadCAD/archive/master.zip) this repo  
 4. Unzip the file and `cd` into the folder  
