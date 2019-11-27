@@ -105,4 +105,4 @@ def run(n):
     return df.plot('timestep', ['box_A', 'box_B'], grid=True, 
         colormap = 'RdYlGn',
         xticks=list(df['timestep'].drop_duplicates()), 
-        yticks=list(range(1+(df['box_A']+df['box_B']).max())));
+        yticks=list(range(1+(df['box_A']+df['box_B']).max())))
