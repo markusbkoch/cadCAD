@@ -102,4 +102,7 @@ def run(n):
     import pandas as pd
     df = pd.DataFrame(raw_result)
     df.set_index(['run', 'timestep', 'substep'])
-    return df
+    return df.plot('timestep', ['box_A', 'box_B'], grid=True, 
+        colormap = 'RdYlGn',
+        xticks=list(df['timestep'].drop_duplicates()), 
+        yticks=list(range(1+(df['box_A']+df['box_B']).max())));
